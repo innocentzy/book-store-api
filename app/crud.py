@@ -140,7 +140,7 @@ async def create_order(
 
     if book.stock_quantity < order_data.quantity:
         raise ValueError(
-            f"Not enough books in stock. Available: {book.stock_quantity}, requested: {order_data.quantity}"
+            f"Not enough stock. Available: {book.stock_quantity}, requested: {order_data.quantity}"
         )
 
     book.stock_quantity -= order_data.quantity

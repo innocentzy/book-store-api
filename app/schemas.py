@@ -40,7 +40,7 @@ class BookCreate(BookBase):
     pass
 
 
-class BookUpdate(BookBase):
+class BookUpdate(BaseModel):
     title: str | None = Field(default=None, min_length=1, max_length=255)
     price: int | None = Field(default=None, gt=0)
     stock_quantity: int | None = Field(default=None, ge=0)

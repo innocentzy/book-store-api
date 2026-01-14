@@ -35,6 +35,6 @@ async def get_author_details(author_id: int, db: AsyncSession = Depends(get_db))
     author = await get_author(db, author_id)
     if not author:
         raise HTTPException(
-            status_code=status.HTTP_400_NOT_FOUND, detail="Author not found"
+            status_code=status.HTTP_404_NOT_FOUND, detail="Author not found"
         )
     return author
