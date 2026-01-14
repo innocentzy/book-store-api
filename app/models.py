@@ -19,7 +19,7 @@ class Author(Base):
     name: Mapped[str] = mapped_column(String(255), unique=True, index=True)
     birth_date: Mapped[date]
 
-    books: Mapped[list["Book"]] = relationship(back_populates="author", lazy="joined")
+    books: Mapped[list["Book"]] = relationship(back_populates="author", lazy="selectin")
 
 
 class Book(Base):
@@ -46,7 +46,7 @@ class User(Base):
     role: Mapped[UserRole] = mapped_column(default=UserRole.USER)
     creation_date: Mapped[datetime] = mapped_column(default=datetime.now)
 
-    orders: Mapped[list["Order"]] = relationship(back_populates="user", lazy="joined")
+    orders: Mapped[list["Order"]] = relationship(back_populates="user", lazy="selectin")
 
 
 class Order(Base):
